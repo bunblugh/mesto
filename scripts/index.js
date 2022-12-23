@@ -10,20 +10,13 @@ const popupDescription = document.querySelector('.popup__description');
 
 function openPopup() {
     editPopup.classList.add('popup_opened');
+    popupName.value = profileName.textContent;
+    popupDescription.value = profileDescription.textContent;
 }
 
 function closePopup() {
     editPopup.classList.remove('popup_opened');
 }
-
-editPopup.addEventListener('click', (event) => {
-    if (event.target === event.currentTarget) {
-        editPopup.classList.remove('popup_opened');
-    }
-})
-
-editButton.addEventListener('click', openPopup);
-closePopupButton.addEventListener('click', closePopup);
 
 function saveProfileInfo(event) {
     event.preventDefault();
@@ -32,5 +25,6 @@ function saveProfileInfo(event) {
     closePopup();
 }
 
-
+editButton.addEventListener('click', openPopup);
+closePopupButton.addEventListener('click', closePopup);
 editPopupForm.addEventListener('submit', saveProfileInfo);
