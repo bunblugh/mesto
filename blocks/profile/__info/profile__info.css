@@ -1,0 +1,13 @@
+.profile__info {
+    align-self: center;
+    margin-left: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media (max-width: 880px) {
+    .profile__info {
+        margin: 0;
+    }
+}
