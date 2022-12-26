@@ -1,4 +1,4 @@
-.popup__description {
+.popup__input {
     max-width: 358px;
     min-height: 27px;
     margin: 0 36px 0 36px;
@@ -7,7 +7,7 @@
 }
 
 @media (max-width: 880px) {
-    .popup__description {
+    .popup__input {
         margin: 0 22px 0 22px;
         max-width: 238px;
     }
