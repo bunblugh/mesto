@@ -8,6 +8,7 @@
     border: none;
     background-color: transparent;
     transition: opacity .4 ease;
+    padding: 0;
 }
 
 .popup__close-button:hover {

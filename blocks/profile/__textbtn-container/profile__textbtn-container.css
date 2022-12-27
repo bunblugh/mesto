@@ -2,3 +2,9 @@
     display: flex;
     flex-direction: row;
 }
+
+@media (max-width: 880px) {
+    .profile__textbtn-container{
+        margin-left: 28px;
+    }
+}
