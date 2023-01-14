@@ -72,14 +72,26 @@
     <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
     </footer>
-<div class="popup">
+<div class="popup popup_type_edit">
     <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>
+        <button class="popup__close-button popup__close-button_type_edit" type="button"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
         <form class="popup__form" name="edit-form">
             <input class="popup__input popup__input_text_name" type="text" placeholder="Имя" autocomplete="off" id="popup__name" name="popup-name">
             <input class="popup__input popup__input_text_description" type="text" placeholder="Описание" autocomplete="off" id="popup__description" name="popup-description">
             <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<div class="popup popup_type_add">
+    <div class="popup__container">
+        <button class="popup__close-button popup__close-button_type_add" type="button"></button>
+        <h2 class="popup__header">Новое место</h2>
+        <form class="popup__form" name="edit-form">
+            <input class="popup__input popup__input_text_name" type="text" placeholder="Название" autocomplete="off" id="popup__name" name="popup-name">
+            <input class="popup__input popup__input_text_description" type="text" placeholder="Ссылка на картинку" autocomplete="off" id="popup__description" name="popup-description">
+            <button class="popup__save-button" type="submit">Создать</button>
         </form>
     </div>
 </div>
