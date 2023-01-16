@@ -25,49 +25,18 @@
         </section>
 
         <section class="cards">
-            <article class="card">
-                <img class="card__image" src="images/karchaevsk.jpg" alt="Карачаевск">
-                <div class="card__text-container">
-                    <h2 class="card__text">Карачаевск</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card__image" src="images/elbrus.jpg" alt="Гора Эльбрус">
-                <div class="card__text-container">
-                    <h2 class="card__text">Гора Эльбрус</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card__image" src="images/dombai.jpg" alt="Домбай">
-                <div class="card__text-container">
-                    <h2 class="card__text">Домбай</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card__image" src="images/elbrus2.jpg" alt="Гора Эльбрус">
-                <div class="card__text-container">
-                    <h2 class="card__text">Гора Эльбрус</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card__image" src="images/dombai2.jpg" alt="Домбай">
-                <div class="card__text-container">
-                    <h2 class="card__text">Домбай</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card__image" src="images/karchaevsk2.jpg" alt="Карачаево-Черкессия">
-                <div class="card__text-container">
-                    <h2 class="card__text">Карачаево-Черкессия</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </article>
         </section>
+
+        <template class="card-template">
+            <div class="card">
+                <img class="card__image">
+                <div class="card__text-container">
+                    <h2 class="card__text"></h2>
+                    <button class="card__like-button" type="button"></button>
+                </div>
+            </div>
+        </template>
+
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
@@ -76,7 +45,7 @@
     <div class="popup__container">
         <button class="popup__close-button popup__close-button_type_edit" type="button"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
-        <form class="popup__form" name="edit-form">
+        <form class="popup__form popup__form_type_edit" name="edit-form">
             <input class="popup__input popup__input_text_name" type="text" placeholder="Имя" autocomplete="off" id="popup__name" name="popup-name">
             <input class="popup__input popup__input_text_description" type="text" placeholder="Описание" autocomplete="off" id="popup__description" name="popup-description">
             <button class="popup__save-button" type="submit">Сохранить</button>
@@ -88,7 +57,7 @@
     <div class="popup__container">
         <button class="popup__close-button popup__close-button_type_add" type="button"></button>
         <h2 class="popup__header">Новое место</h2>
-        <form class="popup__form" name="edit-form">
+        <form class="popup__form popup__form_type_add" name="edit-form">
             <input class="popup__input popup__input_text_name" type="text" placeholder="Название" autocomplete="off" id="popup__name" name="popup-name">
             <input class="popup__input popup__input_text_description" type="text" placeholder="Ссылка на картинку" autocomplete="off" id="popup__description" name="popup-description">
             <button class="popup__save-button" type="submit">Создать</button>
