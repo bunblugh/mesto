@@ -1,33 +1,34 @@
-const initialCards = [ 
+const initialCards = [
     {
         name: 'Карачаевск',
-        src: "images/karchaevsk.jpg"   
+        src: "images/karchaevsk.jpg"
     },
     {
         name: 'Гора Эльбрус',
-        src: "images/elbrus.jpg"   
+        src: "images/elbrus.jpg"
     },
     {
         name: 'Домбай',
-        src: "images/dombai.jpg"   
+        src: "images/dombai.jpg"
     },
     {
         name: 'Гора Эльбрус',
-        src: "images/elbrus2.jpg"   
+        src: "images/elbrus2.jpg"
     },
     {
         name: 'Домбай',
-        src: "images/dombai2.jpg"   
+        src: "images/dombai2.jpg"
     },
     {
         name: 'Карачаево-Черкессия',
-        src: "images/karchaevsk2.jpg"   
+        src: "images/karchaevsk2.jpg"
     }
 ];
 
 const editPopup = document.querySelector('.popup_type_edit');
 const addPopup = document.querySelector('.popup_type_add');
 const imagePopup = document.querySelector('.popup_type_full-image');
+
 const editPopupForm = document.querySelector('.popup__form_type_edit');
 const addPopupForm = document.querySelector('.popup__form_type_add');
 
@@ -67,13 +68,13 @@ function deleteCard(event) {
     event.target.closest('.card').remove();
 }
 
-function likeCard(event){
+function likeCard(event) {
     event.target.classList.toggle('card__like-button_active');
 }
 
-function openPopupImage(event){
+function openPopupImage(event) {
     openPopup(imagePopup);
-    
+
     const popupImage = document.querySelector('.popup__image');
     const popupImageName = document.querySelector('.popup__image-name');
 
@@ -91,7 +92,7 @@ function addCardEventListeners(card) {
     cardImage.addEventListener('click', openPopupImage);
 }
 
-function getCard(item){
+function getCard(item) {
     const card = cardTemplate.cloneNode(true);
 
     card.querySelector('.card__image').src = item.src;
@@ -116,10 +117,10 @@ function renderNewCard(event) {
     const inputImageName = document.querySelector('.popup__input_text_image-name');
     const inputImageSrc = document.querySelector('.popup__input_text_image-source');
     const newCard =
-        {
-            name: `${inputImageName.value}`,
-            src: `${inputImageSrc.value}`
-        }
+    {
+        name: `${inputImageName.value}`,
+        src: `${inputImageSrc.value}`
+    }
     cardsContainer.prepend(getCard(newCard));
 
     closePopup(addPopup);
@@ -127,15 +128,15 @@ function renderNewCard(event) {
 
 renderCards();
 
-editButton.addEventListener('click',() => {
+editButton.addEventListener('click', () => {
     openPopup(editPopup);
     popupName.value = profileName.textContent;
     popupDescription.value = profileDescription.textContent;
 });
 
-addButton.addEventListener('click',() => openPopup(addPopup));
-closeEditPopupButton.addEventListener('click',() => closePopup(editPopup));
-closeAddPopupButton.addEventListener('click',() => closePopup(addPopup));
-closeImagePopupButton.addEventListener('click',() => closePopup(imagePopup));
+addButton.addEventListener('click', () => openPopup(addPopup));
+closeEditPopupButton.addEventListener('click', () => closePopup(editPopup));
+closeAddPopupButton.addEventListener('click', () => closePopup(addPopup));
+closeImagePopupButton.addEventListener('click', () => closePopup(imagePopup));
 editPopupForm.addEventListener('submit', saveProfileInfo);
 addPopupForm.addEventListener('submit', renderNewCard);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link href="pages/index.css" rel="stylesheet">
     <title>Mesto</title>
 </head>
+
 <body class="page">
     <header class="header">
         <img class="header__logo" src="images/logo.svg" alt="Логотип Место">
@@ -43,38 +45,43 @@
         <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
     </footer>
 
-<div class="popup popup_type_edit">
-    <div class="popup__container">
-        <button class="popup__close-button popup__close-button_type_edit" type="button"></button>
-        <h2 class="popup__header">Редактировать профиль</h2>
-        <form class="popup__form popup__form_type_edit" name="edit-form">
-            <input class="popup__input popup__input_text_name" type="text" placeholder="Имя" autocomplete="off" id="popup__name" name="popup-name">
-            <input class="popup__input popup__input_text_description" type="text" placeholder="Описание" autocomplete="off" id="popup__description" name="popup-description">
-            <button class="popup__save-button" type="submit">Сохранить</button>
-        </form>
+    <div class="popup popup_type_edit">
+        <div class="popup__container">
+            <button class="popup__close-button popup__close-button_type_edit" type="button"></button>
+            <h2 class="popup__header">Редактировать профиль</h2>
+            <form class="popup__form popup__form_type_edit" name="edit-form">
+                <input class="popup__input popup__input_text_name" type="text" placeholder="Имя" autocomplete="off"
+                    id="popup__name" name="popup-name">
+                <input class="popup__input popup__input_text_description" type="text" placeholder="Описание"
+                    autocomplete="off" id="popup__description" name="popup-description">
+                <button class="popup__save-button" type="submit">Сохранить</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<div class="popup popup_type_add">
-    <div class="popup__container">
-        <button class="popup__close-button popup__close-button_type_add" type="button"></button>
-        <h2 class="popup__header">Новое место</h2>
-        <form class="popup__form popup__form_type_add" name="edit-form">
-            <input class="popup__input popup__input_text_image-name" type="text" placeholder="Название" autocomplete="off" id="popup__name_type_add" name="popup-name">
-            <input class="popup__input popup__input_text_image-source" type="text" placeholder="Ссылка на картинку" autocomplete="off" id="popup__source_type_add" name="popup-description">
-            <button class="popup__save-button" type="submit">Создать</button>
-        </form>
+    <div class="popup popup_type_add">
+        <div class="popup__container">
+            <button class="popup__close-button popup__close-button_type_add" type="button"></button>
+            <h2 class="popup__header">Новое место</h2>
+            <form class="popup__form popup__form_type_add" name="edit-form">
+                <input class="popup__input popup__input_text_image-name" type="text" placeholder="Название"
+                    autocomplete="off" id="popup__name_type_add" name="popup-name">
+                <input class="popup__input popup__input_text_image-source" type="text" placeholder="Ссылка на картинку"
+                    autocomplete="off" id="popup__source_type_add" name="popup-description">
+                <button class="popup__save-button" type="submit">Создать</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<div class="popup popup_type_full-image">
-    <div class="popup__image-container">
-        <button class="popup__close-button popup__close-button_type_full-image" type="button"></button>
-        <img class="popup__image">
-        <p class="popup__image-name"></p>
+    <div class="popup popup_type_full-image">
+        <div class="popup__image-container">
+            <button class="popup__close-button popup__close-button_type_full-image" type="button"></button>
+            <img class="popup__image">
+            <p class="popup__image-name"></p>
+        </div>
     </div>
-</div>
 
-<script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
+
 </html>
