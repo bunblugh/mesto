@@ -25,6 +25,18 @@ const popupImageName = document.querySelector('.popup__image-name');
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closePopup(popup);
+        }
+    });
+
+    popup.addEventListener('click', (event) => {
+        if (event.target === event.currentTarget) {
+            popup.classList.remove('popup_opened');
+        }
+    });
 }
 
 function closePopup(popup) {
