@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="pages/index.css" rel="stylesheet">
+    <script src="./scripts/cards.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
     <title>Mesto</title>
 </head>
 
@@ -75,7 +78,7 @@
                 <input class="popup__input popup__input_text_image-source" type="url" placeholder="Ссылка на картинку"
                     autocomplete="off" id="popup__input-url" name="popup__input-url" required>
                 <span class="popup__input-error popup__input-url-error"></span>
-                <button class="popup__save-button" type="submit">Создать</button>
+                <button class="popup__save-button popup__save-button_type_add" type="submit">Создать</button>
             </form>
         </div>
     </div>
@@ -88,9 +91,7 @@
         </div>
     </div>
 
-    <script src="./scripts/cards.js"></script>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+
 </body>
 
 </html>

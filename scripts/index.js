@@ -26,21 +26,29 @@ const popupImageName = document.querySelector('.popup__image-name');
 function openPopup(popup) {
     popup.classList.add('popup_opened');
 
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            closePopup(popup);
-        }
-    });
-
-    popup.addEventListener('click', (event) => {
-        if (event.target === event.currentTarget) {
-            popup.classList.remove('popup_opened');
-        }
-    });
+    document.addEventListener('keydown', closePopupByEsc);
+    popup.addEventListener('click', closePopupByClickOutside);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+
+    document.removeEventListener('keydown', closePopupByEsc);
+    popup.removeEventListener('click', closePopupByClickOutside);
+}
+
+function closePopupByEsc(event) {
+    if (event.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    }
+}
+
+function closePopupByClickOutside(event) {
+    if (event.target === event.currentTarget) {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    }
 }
 
 function saveProfileInfo(event) {
@@ -90,7 +98,7 @@ function getCard(item) {
     return card;
 }
 
-function renderCards() {
+function renderInitialCards() {
     initialCards.forEach(item => {
         const cardHtml = getCard(item);
         cardsContainer.append(cardHtml);
@@ -105,17 +113,21 @@ function renderNewCard(event) {
 
     const newCard =
     {
-        name: `${inputImageName.value}`,
-        src: `${inputImageSrc.value}`
+        name: inputImageName.value,
+        src: inputImageSrc.value
     }
     cardsContainer.prepend(getCard(newCard));
 
     closePopup(popupNewPlace);
 
     event.target.reset();
+
+    const addNewPlaceButton = document.querySelector('.popup__save-button_type_add');
+    addNewPlaceButton.classList.add('popup__save-button_disabled');
+    addNewPlaceButton.setAttribute('disabled', '');
 }
 
-renderCards();
+renderInitialCards();
 
 buttonEdit.addEventListener('click', () => {
     openPopup(popupProfile);

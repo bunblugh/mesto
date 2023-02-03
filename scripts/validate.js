@@ -1,46 +1,51 @@
-const showError = (formElement, inputElement, errorMessage) => {
-    inputElement.classList.add('popup__input_type_error');
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__input-error_active');
+const settings = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: '.popup__input-error',
+    errorClass: 'popup__input-error_active'
 };
 
-const hideError = (formElement, inputElement) => {
-    inputElement.classList.remove('popup__input_type_error');
+const showError = (formElement, inputElement, errorMessage, settings) => {
+    inputElement.classList.add(settings.inputErrorClass);
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    errorElement.classList.remove('popup__input-error_active');
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(settings.errorClass);
+};
+
+const hideError = (formElement, inputElement, settings) => {
+    inputElement.classList.remove(settings.inputErrorClass);
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    errorElement.classList.remove(settings.errorClass);
     errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, settings) => {
     if (!inputElement.validity.valid) {
-        showError(formElement, inputElement, inputElement.validationMessage);
+        showError(formElement, inputElement, inputElement.validationMessage, settings);
     } else {
-        hideError(formElement, inputElement);
+        hideError(formElement, inputElement, settings);
     }
 };
 
 
-const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-    const buttonElement = formElement.querySelector('.popup__save-button');
+const setEventListeners = (formElement, settings) => {
+    const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+    const buttonElement = formElement.querySelector(settings.submitButtonSelector);
     toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', function () {
-            checkInputValidity(formElement, inputElement);
+            checkInputValidity(formElement, inputElement, settings);
             toggleButtonState(inputList, buttonElement);
         });
     });
 };
 
-function enableValidation() {
-    const formList = Array.from(document.querySelectorAll('.popup__form'));
+function enableValidation(settings) {
+    const formList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((formElement) => {
-        formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
-
-        setEventListeners(formElement);
+        setEventListeners(formElement, settings);
     });
 }
 
@@ -52,14 +57,20 @@ function hasInvalidInput(inputList) {
 
 function toggleButtonState(inputList, buttonElement) {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add('popup__save-button_disabled');
-        formPopupProfile.removeEventListener('submit', saveProfileInfo);
-        formPopupNewPlace.removeEventListener('submit', renderNewCard);
+        toggleButtonDisabled(buttonElement, settings);
     } else {
-        buttonElement.classList.remove('popup__save-button_disabled');
-        formPopupProfile.addEventListener('submit', saveProfileInfo);
-        formPopupNewPlace.addEventListener('submit', renderNewCard);
+        toggleButtonEnabled(buttonElement, settings);
     }
 }
 
-enableValidation();
+function toggleButtonDisabled (buttonElement, settings) {
+    buttonElement.classList.add(settings.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', '');
+}
+
+function toggleButtonEnabled (buttonElement, settings) {
+    buttonElement.classList.remove(settings.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled');
+}
+
+enableValidation(settings);
