@@ -47,7 +47,7 @@ function closePopupByEsc(event) {
 function closePopupByClickOutside(event) {
     if (event.target === event.currentTarget) {
         const openedPopup = document.querySelector('.popup_opened');
-        closePopup(openedPopup);
+        closePopup(event.currentTarget);
     }
 }
 
@@ -123,8 +123,7 @@ function renderNewCard(event) {
     event.target.reset();
 
     const addNewPlaceButton = document.querySelector('.popup__save-button_type_add');
-    addNewPlaceButton.classList.add('popup__save-button_disabled');
-    addNewPlaceButton.setAttribute('disabled', '');
+    toggleButtonDisabled(addNewPlaceButton, settings)
 }
 
 renderInitialCards();
