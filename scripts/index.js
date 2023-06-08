@@ -1,4 +1,4 @@
-import { Card } from './card.js';
+import { Card } from './Card.js';
 
 const popupProfile = document.querySelector('.popup_type_edit');
 const popupNewPlace = document.querySelector('.popup_type_add');
