@@ -19,12 +19,13 @@ export class Card {
         return cardElement;
     }
 
-    _deleteCard(event) {
-        event.target.closest('.card').remove();
+    _deleteCard() {
+        this._element.remove();
+        this._element = null;
     }
 
-    _likeCard(event) {
-        event.target.classList.toggle('card__like-button_active');
+    _likeCard() {
+        this._elementLikeButton.classList.toggle('card__like-button_active');
     }
 
     _setEventListeners() {

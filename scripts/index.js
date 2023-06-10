@@ -30,8 +30,6 @@ const popupImageName = document.querySelector('.popup__image-name');
 const inputImageName = document.querySelector('.popup__input_text_image-name');
 const inputImageSrc = document.querySelector('.popup__input_text_image-source');
 
-document.addEventListener('keydown', closePopupByEsc);
-
 popupProfile.addEventListener('click', closePopupByClickOutside);
 popupNewPlace.addEventListener('click', closePopupByClickOutside);
 popupFullImage.addEventListener('click', closePopupByClickOutside);
@@ -46,12 +44,18 @@ formValidatorTypeEdit.enableValidation();
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    formValidatorTypeAdd.resetValidation();
-    formValidatorTypeEdit.resetValidation();
+    document.addEventListener('keydown', closePopupByEsc);
+
+    if (popup === popupProfile) {
+        formValidatorTypeEdit.resetValidation();
+    } else if (popup === popupNewPlace) {
+        formValidatorTypeAdd.resetValidation();
+    }
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
 }
 
 function closePopupByEsc(event) {
