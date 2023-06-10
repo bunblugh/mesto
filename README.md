@@ -11,6 +11,7 @@
 * *Grid - layout*
 * *Адаптивная и отзывчивая верстка*
 * *JavaScript*
+* *ООП*
 ### *Прочее*
 ---
 Ссылка на GitHub Pages: https://bunblugh.github.io/mesto

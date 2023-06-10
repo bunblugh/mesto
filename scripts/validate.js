@@ -1,5 +1,3 @@
-import { FormValidator } from './FormValidator.js';
-
 const settings = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -9,8 +7,4 @@ const settings = {
     errorClass: 'popup__input-error_active'
 };
 
-const formElement = document.querySelector('.popup__form_type_add');
-
-const formValidator = new FormValidator(settings, formElement);
-
-formValidator.enableValidation();
+export { settings };
