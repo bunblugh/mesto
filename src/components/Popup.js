@@ -19,19 +19,11 @@ export class Popup {
         }
     }
 
-    _handleClickOutside = () => {
+    setEventListeners() {
         this._popup.addEventListener('click', (event) => {
-            if (event.target === event.currentTarget) {
+            if (event.target.classList.contains('popup_opened') || event.target.classList.contains('popup__close-button')) {
                 this.close();
             }
         })
-    }
-
-    setEventListeners() {
-        this._handleClickOutside();
-
-        document.querySelector('.popup__close-button_type_edit').addEventListener('click', () => this.close());
-        document.querySelector('.popup__close-button_type_add').addEventListener('click', () => this.close());
-        document.querySelector('.popup__close-button_type_full-image').addEventListener('click', () => this.close());
     }
 }

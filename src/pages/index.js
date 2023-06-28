@@ -1,13 +1,13 @@
-import '../pages/index.css';
+import './index.css';
 
-import { settings } from './validate.js';
-import { initialCards } from './cards.js';
-import { Section } from './Section.js';
-import { PopupWithImage } from './PopupWithImage.js';
-import { PopupWithForm } from './PopupWithForm.js';
-import { UserInfo } from './UserInfo.js';
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import { settings } from '../utils/validate.js';
+import { initialCards } from '../utils/cards.js';
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { Card } from '../components/Card.js';
+import { FormValidator } from '../components/FormValidator.js';
 
 const popupProfileSelector = document.querySelector('.popup_type_edit');
 const popupNewPlaceSelector = document.querySelector('.popup_type_add');
@@ -23,10 +23,6 @@ const popupDescription = document.querySelector('.popup__input_text_description'
 
 const cardsContainer = document.querySelector('.cards');
 
-
-const inputImageName = document.querySelector('.popup__input_text_image-name');
-const inputImageSrc = document.querySelector('.popup__input_text_image-source');
-
 const formElementTypeAdd = document.querySelector('.popup__form_type_add');
 const formElementTypeEdit = document.querySelector('.popup__form_type_edit');
 
@@ -40,21 +36,13 @@ const userInfo = new UserInfo(profileName, profileDescription);
 const popupProfile = new PopupWithForm({
     submit: (userData) => {
         userInfo.setUserInfo(userData);
-        profileName.textContent = popupName.value;
-        profileDescription.textContent = popupDescription.value;
         popupProfile.close();
     }
 }, popupProfileSelector);
 
 const popupNewPlace = new PopupWithForm({
-    submit: () => {
-        const newCard =
-        {
-            name: inputImageName.value,
-            link: inputImageSrc.value
-        }
-        cardsContainer.prepend(getCard(newCard));
-
+    submit: (cardData) => {
+        renderInitialCards.addItem(getCard(cardData));
         popupNewPlace.close();
     }
 }, popupNewPlaceSelector);
@@ -66,17 +54,16 @@ popupNewPlace.setEventListeners();
 popupFullImage.setEventListeners();
 
 const renderInitialCards = new Section({
-    items: initialCards,
     renderer: (item) => {
         const cardElement = getCard(item);
         renderInitialCards.addItem(cardElement);
     }
 }, cardsContainer);
 
-renderInitialCards.renderItems();
+renderInitialCards.renderItems(initialCards);
 
-function handleCardClick(link, title) {
-    popupFullImage.open(link, title);
+function handleCardClick(name, link) {
+    popupFullImage.open(name, link);
 }
 
 function getCard(item) {
