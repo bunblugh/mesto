@@ -5,6 +5,7 @@
 .header__logo{height:33px;width:142px}@media (max-width:880px){.header__logo{height:24.4px;margin-left:27px;width:103.74px}}
 .profile{display:flex;flex-direction:row;margin:40px auto 51px;max-width:880px;position:relative}@media (max-width:880px){.profile{flex-direction:column;margin:42px auto 36px;max-width:282px}}
 .profile__image{border-radius:50%;height:120px;width:120px}@media (max-width:880px){.profile__image{margin:0 auto}}
+.profile__change-avatar-button{background-color:transparent;border:none;border-radius:50%;height:120px;padding:0;position:absolute;width:120px}.profile__change-avatar-button:hover{background-color:rgba(0,0,0,.8);background-image:url(8667ac4a523e8fc42e59.svg);background-position:50%;background-repeat:no-repeat;background-size:26px;cursor:pointer}@media (max-width:880px){.profile__change-avatar-button{left:81px}}
 .profile__info{align-self:center;margin-left:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:880px){.profile__info{margin:0}}
 .profile__textbtn-container{display:flex;flex-direction:row}@media (max-width:880px){.profile__textbtn-container{margin-left:28px}}
 .profile__info-name{color:#fff;font-size:42px;font-weight:500;line-height:48px;margin:0 18px 0 0;max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:880px){.profile__info-name{font-size:27px;line-height:33px;margin:26px auto 0;max-width:220px}}
@@ -17,6 +18,8 @@
 .card__image{background-color:#000;border-radius:10px 10px 0 0;color:#fff;cursor:pointer;height:282px;width:282px}
 .card__text-container{display:flex;flex-direction:row;justify-content:space-between;margin:25px 15px 31px 21px;max-width:246px}
 .card__text{font-size:24px;font-weight:900;line-height:29px;margin:0;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card__like-container{display:flex;flex-direction:column-reverse}
+.card__like-counter{font-size:13px;font-weight:400;letter-spacing:0;line-height:16px;margin:3px 0 0;text-align:center}
 .card__like-button{align-self:center;background-color:transparent;background-image:url(87ed371465c7a6a1cd01.svg);border:none;color:#000;height:19px;padding:0;transition:opacity .4 ease;width:22px}.card__like-button:hover{cursor:pointer;opacity:50%}
 .card__like-button_active{background-image:url(fe17a515669479b1e649.svg)}
 .footer{margin:67px auto 60px;max-width:880px}@media (max-width:880px){.footer{margin:48px auto 36px;max-width:282px}}
